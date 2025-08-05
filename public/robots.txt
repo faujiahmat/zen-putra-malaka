@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://zenputramalaka.com
+
+# Sitemaps
+Sitemap: https://zenputramalaka.com/sitemap.xml
