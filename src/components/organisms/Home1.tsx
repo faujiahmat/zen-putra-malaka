@@ -1,21 +1,52 @@
+'use client';
+
+'use client';
+
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export function Home1() {
+  const images = ['/bg-main1.webp', '/bg-main2.webp', '/bg-main3.webp'];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const duration = 5000; // waktu tampil tiap gambar (ms)
+  const fadeMs = 1000; // durasi fade (ms) - harus <= duration
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, duration);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section className=" w-full ">
-      <div className="relative w-full h-96 md:h-96 lg:h-[731px]">
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <Image
-            src="/bg-main.webp"
-            alt="Hero background"
-            priority
-            fill
-            sizes="100vw"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-            className=" pointer-events-none"
-          />
+      <div className="relative w-full h-[500px] md:h-96 lg:h-[731px]">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {images.map((src, i) => (
+            <div
+              key={src}
+              // setiap gambar absolute memenuhi area
+              className={`
+                absolute inset-0 transition-opacity duration-[${fadeMs}ms] ease-in-out
+                ${i === currentIndex ? 'opacity-100' : 'opacity-0'}
+              `}
+              aria-hidden={i === currentIndex ? 'false' : 'true'}
+            >
+              <Image
+                src={src}
+                alt={`Background ${i + 1}`}
+                fill
+                sizes="100vw"
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                // untuk performa: hanya gambar pertama prioritas
+                priority={i === 0}
+              />
+            </div>
+          ))}
         </div>
 
         <div className="absolute  z-10 bg-linear-to-r from-black/75 from-10% to-black/0 to-50% lg:to-60% w-full h-full flex justify-center items-center py-12 md:py-0">

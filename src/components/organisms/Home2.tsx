@@ -3,7 +3,7 @@ import Image from 'next/image';
 export function Home2() {
   return (
     <section className="w-full flex justify-center ">
-      <div className="w-full -mt-10 md:-mt-12 lg:-mt-[68px] px-4 lg:px-12 max-w-screen-xl relative z-30">
+      <div className="w-full -mt-10 md:-mt-12 lg:-mt-14 px-4 lg:px-12 max-w-screen-xl relative z-30">
         <div className="bg-background w-full rounded-xs overflow-hidden flex flex-col md:flex-row shadow-md gap-4 md:gap-0 lg:gap-6">
           {[
             {
