@@ -28,12 +28,19 @@ export const metadata: Metadata = {
   },
   description:
     'Zen Putra Malaka adalah perusahaan kontraktor terpercaya untuk proyek instalasi listrik dan galian tanah di Indonesia.',
+  icons: {
+    icon: '/favicon.ico',
+  },
   keywords: [
     'Kontraktor Listrik',
     'Kontraktor Galian',
     'Instalasi Kabel Tanah',
     'Zen Putra Malaka',
     'Kontraktor Profesional',
+    'Instalasi Listrik',
+    'Galian Tanah',
+    'Instalasi Kabel Bawah Tanah Aceh',
+    'Instalasi Kabel Bawah Tanah Sumatera Utara',
   ],
   metadataBase: new URL('https://zenputramalaka.com'),
   openGraph: {
